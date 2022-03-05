@@ -9,42 +9,42 @@ namespace NanoSoup\Nemesis\ACF\Blocks;
 class Block
 {
     /**
-     * @var
+     * @var string
      */
-    public $blockName;
+    public $blockName = '';
 
     /**
-     * @var
+     * @var string
      */
-    public $blockTitle;
+    public $blockTitle  = '';
 
     /**
-     * @var
+     * @var mixed
      */
     public $blockCallback;
 
     /**
-     * @var
+     * @var string
      */
     public $blockDescription = '';
 
     /**
-     * @var
+     * @var string
      */
     public $blockKeywords = [];
 
     /**
-     * @var
+     * @var string
      */
     public $blockIcon = '';
 
     /**
-     * @var
+     * @var string
      */
     public $catName = '';
 
     /**
-     * @var
+     * @var string
      */
     public $catSlug = 'common';
 
@@ -54,14 +54,24 @@ class Block
     public $mode = 'edit';
 
     /**
-     * @var
+     * @var array
      */
     public $postTypes = ['post', 'page'];
     
     /**
-     * @var
+     * @var array
      */
     public $supports = ['align' => false];
+
+    /**
+     * @var string
+     */
+    public $exampleName = '';
+
+    /**
+     * @var string
+     */
+    public $example = '';
 
     /**
      * Block constructor.
@@ -75,7 +85,7 @@ class Block
      * @param mixed $blockName
      * @return Block
      */
-    public function setBlockName($blockName): self
+    public function setBlockName(string $blockName): self
     {
         $this->blockName = $blockName;
         return $this;
@@ -102,44 +112,42 @@ class Block
     }
 
     /**
-     * @param mixed $blockDescription
+     * @param string $blockDescription
      * @return Block
      */
-    public function setBlockDescription($blockDescription): self
+    public function setBlockDescription(string $blockDescription): self
     {
         $this->blockDescription = $blockDescription;
         return $this;
     }
 
     /**
-     * @param mixed $blockKeywords
+     * @param string $blockKeywords
      * @return Block
      */
-    public function setBlockKeywords($blockKeywords): self
+    public function setBlockKeywords(string $blockKeywords): self
     {
         $this->blockKeywords = $blockKeywords;
         return $this;
     }
 
     /**
-     * @param mixed $blockIcon
+     * @param string $blockIcon
      * @return Block
      */
-    public function setBlockIcon($blockIcon): self
+    public function setBlockIcon(string $blockIcon): self
     {
         $this->blockIcon = $blockIcon;
         return $this;
     }
 
     /**
-     * @param $catSlug
-     * @param $catName
-     * @return $this
+     * @param string $catSlug
+     * @return Block
      */
-    public function setCat($catSlug): self
+    public function setCat(string $catSlug): self
     {
         $this->catSlug = $catSlug;
-
         return $this;
     }
     
@@ -147,35 +155,55 @@ class Block
      * @param array $supports
      * @return Block
      */
-    public function setSupports(Array $supports): self
+    public function setSupports(array $supports): self
     {
         $this->supports = array_merge($this->supports, $supports);
-
         return $this;
     }
 
     /**
-     * @param $mode
+     * @param string $mode
      * @return $this
      */
-    public function setMode($mode): self
+    public function setMode(string $mode): self
     {
         $this->mode = $mode;
-
         return $this;
     }
 
     /**
-     *
+     * @param string $exampleName Preview example asset name.
+     * @param string $example Preview example asset uri string.
+     * @return self
+     */
+    public function setPreviewExample(string $exampleName, string $example): self
+    {
+        $this->exampleName = $exampleName;
+        $this->example = $example;
+        return $this;
+    }
+
+    /**
+     * @param array $postTypes
+     * @return Block
+     */
+    public function setPostTypes(array $postTypes): self
+    {
+        $this->postTypes = $postTypes;
+        return $this;
+    }
+
+    /**
+     * Register an ACF Block
+     * @return void
      */
     public function saveBlock(): void
     {
-        // Register a testimonial ACF Block
         if (function_exists('acf_register_block')) {
-            acf_register_block([
+            $args = [
                 'name' => $this->blockName,
-                'title' => __($this->blockTitle),
-                'description' => __($this->blockDescription),
+                'title' => $this->blockTitle,
+                'description' => $this->blockDescription,
                 'render_callback' => $this->blockCallback,
                 'category' => $this->catSlug,
                 'icon' => $this->blockIcon,
@@ -183,18 +211,20 @@ class Block
                 'post_types' => $this->postTypes,
                 'mode' => $this->mode,
                 'supports' => $this->supports
-            ]);
+            ];
+
+            if (!empty($this->exampleName) && !empty($this->example)) {
+                $args['example'] = [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            $this->exampleName => get_template_directory_uri() . $this->example,
+                        ]
+                    ],
+                ];
+            }
+
+            acf_register_block($args);
         }
-    }
-
-    /**
-     * @param array $postTypes
-     * @return Block
-     */
-    public function setPostTypes(Array $postTypes) : self
-    {
-        $this->postTypes = $postTypes;
-
-        return $this;
     }
 }
