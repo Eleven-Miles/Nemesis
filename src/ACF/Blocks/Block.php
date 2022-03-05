@@ -220,7 +220,7 @@ class Block
                         'data' => [
                             $this->exampleName => get_template_directory_uri() . $this->example,
                         ]
-                    ],
+                    ]
                 ];
             }
 
