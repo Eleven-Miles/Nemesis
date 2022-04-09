@@ -2,6 +2,9 @@
 
 namespace NanoSoup\Nemesis\ACF\Fields;
 
+use ReflectionClass;
+use ReflectionProperty;
+
 /**
  * Class Field
  * 
@@ -10,7 +13,14 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class Field
 {
     /**
-     * Unique identifier for the field. Must begin with 'field_'
+     * Unique identifier to be used in dynamically generating the key.
+     * 
+     * @var string
+     */
+    protected $prefix = '';
+
+    /**
+     * Unique identifier for the field. Must begin with 'field_'.
      * 
      * @var string
      */
@@ -24,14 +34,14 @@ class Field
     public $label = '';
 
     /**
-     * Used to save and load data. Single word, no spaces. Underscores and dashes allowed
+     * Used to save and load data. Single word, no spaces. Underscores and dashes allowed.
      * 
      * @var string
      */
     public $name = '';
 
     /**
-     * Type of field (text, textarea, image, etc)
+     * Type of field (text, textarea, image, etc).
      * 
      * @var string
      */
@@ -45,14 +55,14 @@ class Field
     public $parent = '';
 
     /**
-     * Instructions for authors. Shown when submitting data
+     * Instructions for authors. Shown when submitting data.
      * 
      * @var string
      */
     public $instructions = '';
 
     /**
-     * Whether or not the field value is required. Defaults to 0
+     * Whether or not the field value is required. Defaults to 0.
      * 
      * @var int
      */
@@ -60,14 +70,14 @@ class Field
 
     /**
      * Conditionally hide or show this field based on other field's values.
-     * Best to use the ACF UI and export to understand the array structure. Defaults to 0
+     * Best to use the ACF UI and export to understand the array structure. Defaults to 0.
      * 
      * @var mixed
      */
-    public $conditionalLogic = 0;
+    public $conditional_logic = 0;
 
     /**
-     * An array of attributes given to the field element
+     * An array of attributes given to the field element.
      * 
      * @var array
      */
@@ -78,11 +88,11 @@ class Field
     ];
 
     /**
-     * A default value used by ACF if no value has yet been saved
+     * A default value used by ACF if no value has yet been saved.
      * 
      * @var mixed
      */
-    public $defaultValue = '';
+    public $default_value = '';
 
     /**
      * Field constructor.
@@ -91,12 +101,22 @@ class Field
     {}
 
     /**
+     * @param string $prefix
+     * @return Field
+     */
+    public function setPrefix(string $prefix): self
+    {
+        $this->prefix = $prefix;
+        return $this;
+    }
+
+    /**
      * @param string $key
      * @return Field
      */
     public function setKey(string $key): self
     {
-        $this->key = 'field_' . $key . '_' . $this->generateUniquePrefix($key, $this->label);
+        $this->key = 'field_' . $key;
         return $this;
     }
 
@@ -166,7 +186,7 @@ class Field
      */
     public function setConditionalLogic($conditionalLogic): self
     {
-        $this->conditionalLogic = $conditionalLogic;
+        $this->conditional_logic = $conditionalLogic;
         return $this;
     }
 
@@ -192,7 +212,7 @@ class Field
      */
     public function setDefaultValue(string $defaultValue): self
     {
-        $this->defaultValue = $defaultValue;
+        $this->default_value = $defaultValue;
         return $this;
     }
 
@@ -227,20 +247,22 @@ class Field
      */
     public function getField(): array
     {
-        $field = [
-            'key' => $this->key,
-            'label' => $this->label,
-            'name' => !empty($this->name) ? $this->name : $this->generateName($this->label),
-            'type' => $this->type,
-            'instructions' => $this->instructions,
-            'required' => $this->required,
-            'conditional_logic' => $this->conditionalLogic,
-            'wrapper' => $this->wrapper,
-            'default_value' => $this->defaultValue
-        ];
+        $field = [];
 
-        if (!empty($this->parent)) {
-            $field['parent'] = $this->parent;
+        if (empty($this->key)) {
+            $this->key = 'field_' . $this->type . '_' . $this->generateUniquePrefix($this->prefix, $this->label);
+        }
+
+        if (empty($this->name)) {
+            $this->name = $this->generateName($this->label);
+        }
+
+        $reflect = new ReflectionClass(static::class);
+        foreach ($reflect->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
+            $name = $property->getName();
+            if (isset($this->$name)) {
+                $field[$name] = $this->$name;
+            }
         }
 
         return $field;

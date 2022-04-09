@@ -2,6 +2,9 @@
 
 namespace NanoSoup\Nemesis\ACF\Fields;
 
+use ReflectionClass;
+use ReflectionProperty;
+
 /**
  * Class FieldGroup 
  * @package NanoSoup\Nemesis\ACF
@@ -9,14 +12,14 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class FieldGroup
 {
     /**
-     * Unique identifier for field group. Must begin with 'group_'
+     * Unique identifier for field group. Must begin with 'group_'.
      * 
      * @var string
      */
     public $key = '';
 
      /**
-     * Visible in metabox handle
+     * Visible in metabox handle.
      * 
      * @var string
      */
@@ -46,21 +49,22 @@ class FieldGroup
     ];
 
     /**
-     * Field groups are shown in order from lowest to highest. Defaults to 0
+     * Field groups are shown in order from lowest to highest. Defaults to 0.
      * 
      * @var int
      */
-    public $menuOrder = 0;
+    public $menu_order = 0;
 
     /**
-     * Determines the position on the edit screen. Defaults to normal. Choices of 'acf_after_title', 'normal' or 'side'
+     * Determines the position on the edit screen. Defaults to normal. 
+     * Choices of 'acf_after_title', 'normal' or 'side'.
      * 
      * @var string
      */
     public $position = 'normal';
 
     /**
-     * Determines the metabox style. Defaults to 'default'. Choices of 'default' or 'seamless'
+     * Determines the metabox style. Defaults to 'default'. Choices of 'default' or 'seamless'.
      * 
      * @var string
      */
@@ -68,26 +72,26 @@ class FieldGroup
 
     /**
      * Determines where field labels are places in relation to fields. Defaults to 'top'.
-     * Choices of 'top' (Above fields) or 'left' (Beside fields)
+     * Choices of 'top' (Above fields) or 'left' (Beside fields).
      * 
      * @var string
      */
-    public $labelPlacement = 'top';
+    public $label_placement = 'top';
 
     /**
      * Determines where field instructions are places in relation to fields. Defaults to 'label'.
-     * Choices of 'label' (Below labels) or 'field' (Below fields)
+     * Choices of 'label' (Below labels) or 'field' (Below fields).
      * 
      * @var string
      */
-    public $instructionPlacement = 'label';
+    public $instruction_placement = 'label';
 
      /**
-      * An array of elements to hide on the screen
+      * An array of elements to hide on the screen.
 
      * @var mixed
      */
-    public $hideOnScreen = '';
+    public $hide_on_screen = '';
 
     /**
      * FieldGroup constructor.
@@ -126,6 +130,16 @@ class FieldGroup
     }
 
     /**
+     * @param array $field
+     * @return FieldGroup
+     */
+    public function setField(array $field): self
+    {
+        $this->fields[] = $field;
+        return $this;
+    }
+
+    /**
      * @param array $location
      * @return FieldGroup
      */
@@ -141,7 +155,7 @@ class FieldGroup
      */
     public function setMenuOrder(int $menuOrder): self
     {
-        $this->menuOrder = $menuOrder;
+        $this->menu_order = $menuOrder;
         return $this;
     }
 
@@ -171,7 +185,7 @@ class FieldGroup
      */
     public function setLabelPlacement(string $labelPlacement): self
     {
-        $this->labelPlacement = $labelPlacement;
+        $this->label_placement = $labelPlacement;
         return $this;
     }
 
@@ -181,7 +195,7 @@ class FieldGroup
      */
     public function setInstructionPlacement(string $instructionPlacement): self
     {
-        $this->instructionPlacement = $instructionPlacement;
+        $this->instruction_placement = $instructionPlacement;
         return $this;
     }
 
@@ -191,8 +205,44 @@ class FieldGroup
      */
     public function setHideOnScreen(string $hideOnScreen): self
     {
-        $this->hideOnScreen = $hideOnScreen;
+        $this->hide_on_screen = $hideOnScreen;
         return $this;
+    }
+
+    /**
+     * Generate name field from title
+     * 
+     * @param $title
+     * @return string
+     */
+    public function generateName(string $title): string
+    {
+        $title = preg_replace('/[^A-Za-z0-9]+/', '_', $title);
+        return strtolower($title);
+    }
+
+    /**
+     * Return an ACF Field Group
+     * 
+     * @return array
+     */
+    public function getFieldGroup(): array
+    {
+        $fieldGroup = [];
+
+        if (empty($this->key)) {
+            $this->key = 'group_' .  $this->generateName($this->title);
+        }
+
+        $reflect = new ReflectionClass(static::class);
+        foreach ($reflect->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
+            $name = $property->getName();
+            if (isset($this->$name)) {
+                $fieldGroup[$name] = $this->$name;
+            }
+        }
+
+        return $fieldGroup;
     }
 
     /**
@@ -203,18 +253,7 @@ class FieldGroup
     public function saveFieldGroup(): void
     {
         if (function_exists('acf_add_local_field_group')) {
-            acf_add_local_field_group([
-                'key' => $this->key,
-                'title' => $this->title,
-                'fields' => $this->fields,
-                'location' => $this->location,
-                'menu_order' => $this->menuOrder,
-                'position' => $this->position,
-                'style' => $this->style,
-                'label_placement' => $this->labelPlacement,
-                'instruction_placement' => $this->instructionPlacement,
-                'hide_on_screen' => $this->hideOnScreen
-            ]);
+            acf_add_local_field_group($this->getFieldGroup());
         }
     }
 }
