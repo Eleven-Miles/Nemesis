@@ -12,6 +12,13 @@ use ReflectionProperty;
 class Block
 {
     /**
+     * Used to set up the field group for the block fields.
+     *
+     * @var BlockFieldGroup
+     */
+    protected $fieldGroup;
+
+    /**
      * A unique name that identifies the block (without namespace). For example ‘testimonial’.
      * Note: A block name can only contain lowercase alphanumeric characters and dashes, 
      * and must begin with a letter.
@@ -160,7 +167,8 @@ class Block
         'align_text' => false, 
         'align_content' => false,
         'full_height' => false,
-        'mode' => true
+        'mode' => true,
+        'multiple' => true
     ];
 
     /**
@@ -176,6 +184,7 @@ class Block
      */
     public function __construct()
     {
+        $this->fieldGroup = new BlockFieldGroup();
         $this->render_callback = [get_called_class(), 'renderBlock'];
     }
 
@@ -376,7 +385,7 @@ class Block
      */
     public function generateName(string $title): string
     {
-        $title = preg_replace('/[^A-Za-z0-9]+/', '_', $title);
+        $title = preg_replace('/[^A-Za-z0-9]+/', '-', $title);
         return strtolower($title);
     }
 
