@@ -1,6 +1,8 @@
 <?php
 
-namespace NanoSoup\Nemesis\ACF\Fields;
+namespace NanoSoup\Nemesis\ACF\FieldGroups;
+
+use NanoSoup\Nemesis\ACF\Fields\TextField;
 
 /**
  * Class SampleFieldGroup

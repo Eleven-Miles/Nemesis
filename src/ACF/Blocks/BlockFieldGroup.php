@@ -2,7 +2,7 @@
 
 namespace NanoSoup\Nemesis\ACF\Blocks;
 
-use NanoSoup\Nemesis\ACF\Fields\FieldGroup;
+use NanoSoup\Nemesis\ACF\FieldGroups\FieldGroup;
 
 /**
  * Class BlockFieldGroup 

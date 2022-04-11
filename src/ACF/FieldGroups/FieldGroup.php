@@ -1,6 +1,6 @@
 <?php
 
-namespace NanoSoup\Nemesis\ACF\Fields;
+namespace NanoSoup\Nemesis\ACF\FieldGroups;
 
 use ReflectionClass;
 use ReflectionProperty;
