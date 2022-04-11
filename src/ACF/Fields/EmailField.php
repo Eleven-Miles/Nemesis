@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class EmailField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'email';
+
+    /**
      * Appears within the input. Defaults to ''.
      * 
      * @var string
@@ -29,4 +36,14 @@ class EmailField extends Field
      * @var string
      */
     public $append = '';
+
+    /**
+     * @param string $placeholder
+     * @return Field
+     */
+    public function setPlaceholder(string $placeholder): self
+    {
+        $this->placeholder = $placeholder;
+        return $this;
+    }
 }

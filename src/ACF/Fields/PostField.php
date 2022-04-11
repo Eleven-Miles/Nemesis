@@ -3,12 +3,19 @@
 namespace NanoSoup\Nemesis\ACF\Fields;
 
 /**
- * Class PostObjectField
+ * Class PostField
  * 
  * @package NanoSoup\Nemesis\ACF
  */
-class PostObjectField extends Field
+class PostField extends Field
 {
+    /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'post_object';
+
     /**
      * Specify an array of post types to filter the available choices. Defaults to ''.
      * 
@@ -44,4 +51,24 @@ class PostObjectField extends Field
      * @var string
      */
     public $return_format = 'object';
+
+    /**
+     * @param bool $allowNull
+     * @return Field
+     */
+    public function setAllowNull(bool $allowNull): self
+    {
+        $this->allow_null = $allowNull;
+        return $this;
+    }
+
+    /**
+     * @param string $returnFormat
+     * @return Field
+     */
+    public function setReturnFormat(string $returnFormat): self
+    {
+        $this->return_format = $returnFormat;
+        return $this;
+    }
 }

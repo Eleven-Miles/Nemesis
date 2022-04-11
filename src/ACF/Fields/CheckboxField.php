@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class CheckboxField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'checkbox';
+
+    /**
      * Array of choices where the key ('red') is used as value and the value ('Red') is used as label.
      * 
      * @var array
@@ -52,4 +59,64 @@ class CheckboxField extends Field
      * @var string
      */
     public $return_format = 'value';
+
+    /**
+     * @param array $choices
+     * @return Field
+     */
+    public function setChoices(array $choices): self
+    {
+        $this->choices = $choices;
+        return $this;
+    }
+
+    /**
+     * @param string $layout
+     * @return Field
+     */
+    public function setLayout(string $layout): self
+    {
+        $this->layout = $layout;
+        return $this;
+    }
+
+    /**
+     * @param string $allowCustom
+     * @return Field
+     */
+    public function setAllowCustom(string $allowCustom): self
+    {
+        $this->allow_custom = $allowCustom;
+        return $this;
+    }
+
+    /**
+     * @param string $saveCustom
+     * @return Field
+     */
+    public function setSaveCustom(string $saveCustom): self
+    {
+        $this->save_custom = $saveCustom;
+        return $this;
+    }
+
+    /**
+     * @param bool $toggle
+     * @return Field
+     */
+    public function setToggle(bool $toggle): self
+    {
+        $this->toggle = $toggle;
+        return $this;
+    }
+
+    /**
+     * @param string $returnFormat
+     * @return Field
+     */
+    public function setReturnFormat(string $returnFormat): self
+    {
+        $this->return_format = $returnFormat;
+        return $this;
+    }
 }

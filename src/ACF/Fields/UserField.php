@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class UserField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'user';
+
+    /**
      * Array of roles to limit the users available for selection.
      * 
      * @var array
@@ -29,4 +36,14 @@ class UserField extends Field
      * @var bool
      */
     public $multiple = 0;
+
+    /**
+     * @param bool $allowNull
+     * @return Field
+     */
+    public function setAllowNull(bool $allowNull): self
+    {
+        $this->allow_null = $allowNull;
+        return $this;
+    }
 }

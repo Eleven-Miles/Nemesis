@@ -10,44 +10,26 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class ChoiceField extends Field
 {
     /**
-     * Array of choices where the key ('red') is used as value and the value ('Red') is used as label.
-     * 
-     * @var array
-     */
-    public $choices = [];
-
-    /**
-     * Allow a null (blank) value to be selected. Defaults to 0.
-     * 
-     * @var bool
-     */
-    public $allow_null = 0;
-
-    /**
-     * Allow mulitple choices to be selected. Defaults to 0.
-     * 
-     * @var bool
-     */
-    public $multiple = 0;
-
-    /**
-     * Use the select2 interfacte. Defaults to 0.
-     * 
-     * @var bool
-     */
-    public $ui = 0;
-
-    /**
-     * Load choices via AJAX. The ui setting must also be true for this to work. Defaults to 0.
-     * 
-     * @var bool
-     */
-    public $ajax = 0;
-
-    /**
-     * Appears within the select2 input. Defaults to ''.
+     * Type of field (text, textarea, image, etc).
      * 
      * @var string
      */
-    public $placeholder = '';
+    public $type = 'true_false';
+
+    /**
+     * Text shown along side the checkbox.
+     * 
+     * @var string
+     */
+    public $message = 0;
+
+    /**
+     * @param string $message
+     * @return Field
+     */
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+        return $this;
+    }
 }

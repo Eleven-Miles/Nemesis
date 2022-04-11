@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class TextField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'text';
+
+    /**
      * Appears within the input. Defaults to ''.
      * 
      * @var string
@@ -50,4 +57,34 @@ class TextField extends Field
      * @var bool
      */
     public $disabled = '';
+
+    /**
+     * @param string $placeholder
+     * @return Field
+     */
+    public function setPlaceholder(string $placeholder): self
+    {
+        $this->placeholder = $placeholder;
+        return $this;
+    }
+
+    /**
+     * @param string $prepend
+     * @return Field
+     */
+    public function setPrepend(string $prepend): self
+    {
+        $this->prepend = $prepend;
+        return $this;
+    }
+
+    /**
+     * @param string $append
+     * @return Field
+     */
+    public function setAppend(string $append): self
+    {
+        $this->append = $append;
+        return $this;
+    }
 }

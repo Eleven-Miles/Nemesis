@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class RelationshipField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'relationship';
+
+    /**
      * Specify an array of post types to filter the available choices. Defaults to ''.
      * 
      * @var mixed
@@ -63,4 +70,14 @@ class RelationshipField extends Field
      * @var string
      */
     public $return_format = 'object';
+
+    /**
+     * @param string $returnFormat
+     * @return Field
+     */
+    public function setReturnFormat(string $returnFormat): self
+    {
+        $this->return_format = $returnFormat;
+        return $this;
+    }
 }

@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class OembedField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'oembed';
+
+    /**
      * Specify the width of the oEmbed element. Can be overridden by CSS.
      * 
      * @var int|string

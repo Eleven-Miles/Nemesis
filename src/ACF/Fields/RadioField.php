@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class RadioField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'radio';
+
+    /**
      * Array of choices where the key ('red') is used as value and the value ('Red') is used as label.
      * 
      * @var array
@@ -38,4 +45,24 @@ class RadioField extends Field
      * @var string
      */
     public $layout = 0;
+
+    /**
+     * @param array $choices
+     * @return Field
+     */
+    public function setChoices(array $choices): self
+    {
+        $this->choices = $choices;
+        return $this;
+    }
+
+    /**
+     * @param string $layout
+     * @return Field
+     */
+    public function setLayout(string $layout): self
+    {
+        $this->layout = $layout;
+        return $this;
+    }
 }

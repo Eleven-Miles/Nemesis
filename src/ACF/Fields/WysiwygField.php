@@ -10,6 +10,13 @@ namespace NanoSoup\Nemesis\ACF\Fields;
 class WysiwygField extends Field
 {
     /**
+     * Type of field (text, textarea, image, etc).
+     * 
+     * @var string
+     */
+    public $type = 'wysiwyg';
+
+    /**
      * Specify which tabs are available. Defaults to 'all'.
 	 * Choices of 'all' (Visual & Text), 'visual' (Visual Only) or text (Text Only).
      * 
