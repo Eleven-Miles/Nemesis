@@ -59,32 +59,110 @@ class SelectField extends Field
     public $placeholder = '';
 
     /**
-     * @param array $choices
-     * @return Field
+     * Get the value of choices
      */
-    public function setChoices(array $choices): self
+    public function getChoices()
+    {
+        return $this->choices;
+    }
+
+    /**
+     * Set the value of choices
+     */
+    public function setChoices($choices): self
     {
         $this->choices = $choices;
+
         return $this;
     }
 
     /**
-     * @param bool $allowNull
-     * @return Field
+     * Get the value of allow_null
      */
-    public function setAllowNull(bool $allowNull): self
+    public function getAllowNull()
     {
-        $this->allow_null = $allowNull;
+        return $this->allow_null;
+    }
+
+    /**
+     * Set the value of allow_null
+     */
+    public function setAllowNull($allow_null): self
+    {
+        $this->allow_null = $allow_null;
+
         return $this;
     }
 
     /**
-     * @param string $placeholder
-     * @return Field
+     * Get the value of multiple
      */
-    public function setPlaceholder(string $placeholder): self
+    public function getMultiple()
+    {
+        return $this->multiple;
+    }
+
+    /**
+     * Set the value of multiple
+     */
+    public function setMultiple($multiple): self
+    {
+        $this->multiple = $multiple;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ui
+     */
+    public function getUi()
+    {
+        return $this->ui;
+    }
+
+    /**
+     * Set the value of ui
+     */
+    public function setUi($ui): self
+    {
+        $this->ui = $ui;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ajax
+     */
+    public function getAjax()
+    {
+        return $this->ajax;
+    }
+
+    /**
+     * Set the value of ajax
+     */
+    public function setAjax($ajax): self
+    {
+        $this->ajax = $ajax;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of placeholder
+     */
+    public function getPlaceholder()
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * Set the value of placeholder
+     */
+    public function setPlaceholder($placeholder): self
     {
         $this->placeholder = $placeholder;
+
         return $this;
     }
 }

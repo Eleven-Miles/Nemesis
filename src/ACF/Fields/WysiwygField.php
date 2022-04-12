@@ -38,4 +38,58 @@ class WysiwygField extends Field
      * @var bool
      */
     public $media_upload = 1;
+
+    /**
+     * Get the value of tabs
+     */
+    public function getTabs()
+    {
+        return $this->tabs;
+    }
+
+    /**
+     * Set the value of tabs
+     */
+    public function setTabs($tabs): self
+    {
+        $this->tabs = $tabs;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of toolbar
+     */
+    public function getToolbar()
+    {
+        return $this->toolbar;
+    }
+
+    /**
+     * Set the value of toolbar
+     */
+    public function setToolbar($toolbar): self
+    {
+        $this->toolbar = $toolbar;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of media_upload
+     */
+    public function getMediaUpload()
+    {
+        return $this->media_upload;
+    }
+
+    /**
+     * Set the value of media_upload
+     */
+    public function setMediaUpload($media_upload): self
+    {
+        $this->media_upload = $media_upload;
+
+        return $this;
+    }
 }

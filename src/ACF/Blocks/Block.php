@@ -184,187 +184,403 @@ class Block
      */
     public function __construct()
     {
-        $this->fieldGroup = new BlockFieldGroup();
-        $this->render_callback = [get_called_class(), 'renderBlock'];
+        $this->setFieldGroup(new BlockFieldGroup());
+        $this->setRenderCallback([get_called_class(), 'renderBlock']);
     }
 
     /**
-     * @param string $name
-     * @return Block
+     * Get the value of fieldGroup
      */
-    public function setBlockName(string $name): self
+    public function getFieldGroup(): BlockFieldGroup
+    {
+        return $this->fieldGroup;
+    }
+
+    /**
+     * Set the value of fieldGroup
+     */
+    public function setFieldGroup(BlockFieldGroup $fieldGroup): self
+    {
+        $this->fieldGroup = $fieldGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     */
+    public function setName($name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
     /**
-     * @param string $title
-     * @return Block
+     * Legacy set the value of name
      */
-    public function setBlockTitle(string $title): self
+    public function setBlockName($name): self
+    {
+        return $this->setName($name);
+    }
+
+    /**
+     * Get the value of title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of title
+     */
+    public function setTitle($title): self
     {
         $this->title = $title;
+
         return $this;
     }
 
     /**
-     * @param string $description
-     * @return Block
+     * Legacy set the value of title
      */
-    public function setBlockDescription(string $description): self
+    public function setBlockTitle($title): self
+    {
+        $this->title = $title;
+        return $this->setTitle($title);
+    }
+
+    /**
+     * Get the value of description
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     */
+    public function setDescription($description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
     /**
-     * @param string $category
-     * @return Block
+     * Legacy set the value of description
      */
-    public function setCat(string $category): self
+    public function setBlockDescription($description): self
+    {
+        return $this->setDescription($description);
+    }
+
+    /**
+     * Get the value of category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the value of category
+     */
+    public function setCategory($category): self
     {
         $this->category = $category;
+
         return $this;
     }
 
     /**
-     * @param string|array $icon
-     * @return Block
+     * Legacy set the value of category
+     */
+    public function setCat($category): self
+    {
+        return $this->setCategory($category);
+    }
+
+    /**
+     * Get the value of icon
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Set the value of icon
+     */
+    public function setIcon($icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Legacy set the value of icon
      */
     public function setBlockIcon($icon): self
     {
-        $this->icon = $icon;
-        return $this;
+        return $this->setIcon($icon);
     }
 
     /**
-     * @param array $keywords
-     * @return Block
+     * Get the value of keywords
      */
-    public function setBlockKeywords(array $keywords): self
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * Set the value of keywords
+     */
+    public function setKeywords($keywords): self
     {
         $this->keywords = $keywords;
+
         return $this;
     }
 
     /**
-     * @param array $postTypes
-     * @return Block
+     * Legacy set the value of keywords
      */
-    public function setPostTypes(array $postTypes): self
+    public function setBlockKeywords($keywords): self
     {
-        $this->post_types = $postTypes;
+        return $this->setKeywords($keywords);
+    }
+
+    /**
+     * Get the value of post_types
+     */
+    public function getPostTypes()
+    {
+        return $this->post_types;
+    }
+
+    /**
+     * Set the value of post_types
+     */
+    public function setPostTypes($post_types): self
+    {
+        $this->post_types = $post_types;
+
         return $this;
     }
 
     /**
-     * @param string $mode
-     * @return Block
+     * Get the value of mode
      */
-    public function setMode(string $mode): self
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
+    /**
+     * Set the value of mode
+     */
+    public function setMode($mode): self
     {
         $this->mode = $mode;
+
         return $this;
     }
 
     /**
-     * @param string $align
-     * @return Block
+     * Get the value of align
      */
-    public function setAlign(string $align): self
+    public function getAlign()
+    {
+        return $this->align;
+    }
+
+    /**
+     * Set the value of align
+     */
+    public function setAlign($align): self
     {
         $this->align = $align;
+
         return $this;
     }
 
     /**
-     * @param string $alignText
-     * @return Block
+     * Get the value of align_text
      */
-    public function setAlignText(string $alignText): self
+    public function getAlignText()
     {
-        $this->align_text = $alignText;
-        return $this;
+        return $this->align_text;
     }
 
     /**
-     * @param string $alignContent
-     * @return Block
+     * Set the value of align_text
      */
-    public function setAlignContent(string $alignContent): self
+    public function setAlignText($align_text): self
     {
-        $this->align_content = $alignContent;
+        $this->align_text = $align_text;
+
         return $this;
     }
 
     /**
-     * @param string $renderTemplate
-     * @return Block
+     * Get the value of align_content
      */
-    public function setBlockTemplate(string $renderTemplate): self
+    public function getAlignContent()
     {
-        $this->render_template = $renderTemplate;
-        return $this;
+        return $this->align_content;
     }
 
     /**
-     * @param mixed $renderCallback
-     * @return Block
+     * Set the value of align_content
      */
-    public function setBlockCallback($renderCallback): self
+    public function setAlignContent($align_content): self
     {
-        $this->render_callback = $renderCallback;
+        $this->align_content = $align_content;
+
         return $this;
     }
 
     /**
-     * @param string $enqueueStyle
-     * @return Block
+     * Get the value of render_template
      */
-    public function setBlockStyle(string $enqueueStyle): self
+    public function getRenderTemplate()
     {
-        $this->enqueue_style = $enqueueStyle;
-        return $this;
+        return $this->render_template;
     }
 
     /**
-     * @param string $enqueueScript
-     * @return Block
+     * Set the value of render_template
      */
-    public function setBlockScript(string $enqueueScript): self
+    public function setRenderTemplate($render_template): self
     {
-        $this->enqueue_script = $enqueueScript;
+        $this->render_template = $render_template;
+
         return $this;
     }
 
     /**
-     * @param mixed $enqueueAssets
-     * @return Block
+     * Get the value of render_callback
      */
-    public function setBlockAssets($enqueueAssets): self
+    public function getRenderCallback()
     {
-        $this->enqueue_assets = $enqueueAssets;
+        return $this->render_callback;
+    }
+
+    /**
+     * Set the value of render_callback
+     */
+    public function setRenderCallback($render_callback): self
+    {
+        $this->render_callback = $render_callback;
+
         return $this;
     }
 
     /**
-     * @param array $supports
-     * @return Block
+     * Legacy set the value of render_callback
      */
-    public function setSupports(array $supports): self
+    public function setBlockCallback($render_callback): self
+    {
+        return $this->setRenderCallback($render_callback);
+    }
+
+    /**
+     * Get the value of enqueue_style
+     */
+    public function getEnqueueStyle()
+    {
+        return $this->enqueue_style;
+    }
+
+    /**
+     * Set the value of enqueue_style
+     */
+    public function setEnqueueStyle($enqueue_style): self
+    {
+        $this->enqueue_style = $enqueue_style;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of enqueue_script
+     */
+    public function getEnqueueScript()
+    {
+        return $this->enqueue_script;
+    }
+
+    /**
+     * Set the value of enqueue_script
+     */
+    public function setEnqueueScript($enqueue_script): self
+    {
+        $this->enqueue_script = $enqueue_script;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of enqueue_assets
+     */
+    public function getEnqueueAssets()
+    {
+        return $this->enqueue_assets;
+    }
+
+    /**
+     * Set the value of enqueue_assets
+     */
+    public function setEnqueueAssets($enqueue_assets): self
+    {
+        $this->enqueue_assets = $enqueue_assets;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of supports
+     */
+    public function getSupports()
+    {
+        return $this->supports;
+    }
+
+    /**
+     * Set the value of supports
+     */
+    public function setSupports($supports): self
     {
         $this->supports = $supports;
+
         return $this;
     }
 
     /**
-     * @param string $name
-     * @param string $asset
-     * @param string $mode
-     * @return Block
+     * Get the value of example
      */
-    public function setPreviewExample(string $name, string $asset, string $mode = 'preview'): self
+    public function getExample()
+    {
+        return $this->example;
+    }
+
+    /**
+     * Set the value of example
+     */
+    public function setExample($name, $asset, $mode = 'preview'): self
     {
         $this->example = [
             'attributes' => [
@@ -374,7 +590,16 @@ class Block
                 ]
             ]
         ];
+
         return $this;
+    }
+
+    /**
+     * Legacy set the value of example
+     */
+    public function setPreviewExample($name, $asset, $mode = 'preview'): self
+    {
+        return $this->setExample($name, $asset, $mode);
     }
 
     /**

@@ -28,14 +28,14 @@ class SampleBlock extends Block implements BlockInterface
      */
     public function registerBlock(): void
     {
-        $this->setBlockTitle('Sample Block')
-            ->setBlockCallback([self::class, 'renderBlock'])
-            ->setPreviewExample(
+        $this->setTitle('Sample Block')
+            ->setRenderCallback([self::class, 'renderBlock'])
+            ->setExample(
                 'block_preview', 
                 '/classes/ACF/Blocks/Content/previews/sample-block.png'
             )
-            ->setBlockIcon('align-right')
-            ->setCat('content')
+            ->setIcon('align-right')
+            ->setCategory('content')
             ->saveBlock();
     }
 

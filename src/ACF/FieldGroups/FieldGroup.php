@@ -100,112 +100,192 @@ class FieldGroup
     {}
 
     /**
-     * @param string $key
-     * @return FieldGroup
+     * Get the value of key
      */
-    public function setKey(string $key): self
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * Set the value of key
+     */
+    public function setKey($key): self
     {
         $this->key = 'group_' . $key;
+
         return $this;
     }
 
     /**
-     * @param string $title
-     * @return FieldGroup
+     * Get the value of title
      */
-    public function setTitle(string $title): self
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of title
+     */
+    public function setTitle($title): self
     {
         $this->title = $title;
+
         return $this;
     }
 
     /**
-     * @param array $fields
-     * @return FieldGroup
+     * Get the value of fields
      */
-    public function setFields(array $fields): self
+    public function getFields()
+    {
+        return $this->fields;
+    }
+
+    /**
+     * Set the value of fields
+     */
+    public function setFields($fields): self
     {
         $this->fields = $fields;
+
         return $this;
     }
 
     /**
-     * @param array $field
-     * @return FieldGroup
+     * Set the value of field
      */
-    public function setField(array $field): self
+    public function setField($field): self
     {
         $this->fields[] = $field;
+
         return $this;
     }
 
     /**
-     * @param array $location
-     * @return FieldGroup
+     * Get the value of location
      */
-    public function setLocation(array $location): self
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set the value of location
+     */
+    public function setLocation($location): self
     {
         $this->location = $location;
+
         return $this;
     }
 
     /**
-     * @param int $menuOrder
-     * @return FieldGroup
+     * Get the value of menu_order
      */
-    public function setMenuOrder(int $menuOrder): self
+    public function getMenuOrder()
     {
-        $this->menu_order = $menuOrder;
+        return $this->menu_order;
+    }
+
+    /**
+     * Set the value of menu_order
+     */
+    public function setMenuOrder($menu_order): self
+    {
+        $this->menu_order = $menu_order;
+
         return $this;
     }
 
     /**
-     * @param string $position
-     * @return FieldGroup
+     * Get the value of position
      */
-    public function setPosition(string $position): self
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set the value of position
+     */
+    public function setPosition($position): self
     {
         $this->position = $position;
+
         return $this;
     }
 
     /**
-     * @param string $style
-     * @return FieldGroup
+     * Get the value of style
      */
-    public function setStyle(string $style): self
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * Set the value of style
+     */
+    public function setStyle($style): self
     {
         $this->style = $style;
+
         return $this;
     }
 
     /**
-     * @param string $labelPlacement
-     * @return FieldGroup
+     * Get the value of label_placement
      */
-    public function setLabelPlacement(string $labelPlacement): self
+    public function getLabelPlacement()
     {
-        $this->label_placement = $labelPlacement;
+        return $this->label_placement;
+    }
+
+    /**
+     * Set the value of label_placement
+     */
+    public function setLabelPlacement($label_placement): self
+    {
+        $this->label_placement = $label_placement;
+
         return $this;
     }
 
     /**
-     * @param string $instructionPlacement
-     * @return FieldGroup
+     * Get the value of instruction_placement
      */
-    public function setInstructionPlacement(string $instructionPlacement): self
+    public function getInstructionPlacement()
     {
-        $this->instruction_placement = $instructionPlacement;
+        return $this->instruction_placement;
+    }
+
+    /**
+     * Set the value of instruction_placement
+     */
+    public function setInstructionPlacement($instruction_placement): self
+    {
+        $this->instruction_placement = $instruction_placement;
+
         return $this;
     }
 
     /**
-     * @param string $hideOnScreen
-     * @return FieldGroup
+     * Get the value of hide_on_screen
      */
-    public function setHideOnScreen(string $hideOnScreen): self
+    public function getHideOnScreen()
     {
-        $this->hide_on_screen = $hideOnScreen;
+        return $this->hide_on_screen;
+    }
+
+    /**
+     * Set the value of hide_on_screen
+     */
+    public function setHideOnScreen($hide_on_screen): self
+    {
+        $this->hide_on_screen = $hide_on_screen;
+
         return $this;
     }
 

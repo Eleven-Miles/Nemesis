@@ -45,12 +45,74 @@ class PageLinkField extends Field
     public $multiple = 0;
 
     /**
-     * @param bool $allowNull
-     * @return Field
+     * Get the value of post_type
      */
-    public function setAllowNull(bool $allowNull): self
+    public function getPostType()
     {
-        $this->allow_null = $allowNull;
+        return $this->post_type;
+    }
+
+    /**
+     * Set the value of post_type
+     */
+    public function setPostType($post_type): self
+    {
+        $this->post_type = $post_type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of taxonomy
+     */
+    public function getTaxonomy()
+    {
+        return $this->taxonomy;
+    }
+
+    /**
+     * Set the value of taxonomy
+     */
+    public function setTaxonomy($taxonomy): self
+    {
+        $this->taxonomy = $taxonomy;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of allow_null
+     */
+    public function getAllowNull()
+    {
+        return $this->allow_null;
+    }
+
+    /**
+     * Set the value of allow_null
+     */
+    public function setAllowNull($allow_null): self
+    {
+        $this->allow_null = $allow_null;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of multiple
+     */
+    public function getMultiple()
+    {
+        return $this->multiple;
+    }
+
+    /**
+     * Set the value of multiple
+     */
+    public function setMultiple($multiple): self
+    {
+        $this->multiple = $multiple;
+
         return $this;
     }
 }

@@ -24,12 +24,20 @@ class UrlField extends Field
     public $placeholder = '';
 
     /**
-     * @param string $placeholder
-     * @return Field
+     * Get the value of placeholder
      */
-    public function setPlaceholder(string $placeholder): self
+    public function getPlaceholder()
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * Set the value of placeholder
+     */
+    public function setPlaceholder($placeholder): self
     {
         $this->placeholder = $placeholder;
+
         return $this;
     }
 }

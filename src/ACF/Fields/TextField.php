@@ -59,32 +59,110 @@ class TextField extends Field
     public $disabled = '';
 
     /**
-     * @param string $placeholder
-     * @return Field
+     * Get the value of placeholder
      */
-    public function setPlaceholder(string $placeholder): self
+    public function getPlaceholder()
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * Set the value of placeholder
+     */
+    public function setPlaceholder($placeholder): self
     {
         $this->placeholder = $placeholder;
+
         return $this;
     }
 
     /**
-     * @param string $prepend
-     * @return Field
+     * Get the value of prepend
      */
-    public function setPrepend(string $prepend): self
+    public function getPrepend()
+    {
+        return $this->prepend;
+    }
+
+    /**
+     * Set the value of prepend
+     */
+    public function setPrepend($prepend): self
     {
         $this->prepend = $prepend;
+
         return $this;
     }
 
     /**
-     * @param string $append
-     * @return Field
+     * Get the value of append
      */
-    public function setAppend(string $append): self
+    public function getAppend()
+    {
+        return $this->append;
+    }
+
+    /**
+     * Set the value of append
+     */
+    public function setAppend($append): self
     {
         $this->append = $append;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of maxlength
+     */
+    public function getMaxlength()
+    {
+        return $this->maxlength;
+    }
+
+    /**
+     * Set the value of maxlength
+     */
+    public function setMaxlength($maxlength): self
+    {
+        $this->maxlength = $maxlength;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of readonly
+     */
+    public function getReadonly()
+    {
+        return $this->readonly;
+    }
+
+    /**
+     * Set the value of readonly
+     */
+    public function setReadonly($readonly): self
+    {
+        $this->readonly = $readonly;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of disabled
+     */
+    public function getDisabled()
+    {
+        return $this->disabled;
+    }
+
+    /**
+     * Set the value of disabled
+     */
+    public function setDisabled($disabled): self
+    {
+        $this->disabled = $disabled;
+
         return $this;
     }
 }

@@ -97,52 +97,200 @@ class GalleryField extends Field
     public $mime_types = '';
 
     /**
-     * @param string $previewSize
-     * @return Field
+     * Get the value of min
      */
-    public function setPreviewSize(string $previewSize): self
+    public function getMin()
     {
-        $this->preview_size = $previewSize;
+        return $this->min;
+    }
+
+    /**
+     * Set the value of min
+     */
+    public function setMin($min): self
+    {
+        $this->min = $min;
+
         return $this;
     }
 
     /**
-     * @param string $library
-     * @return Field
+     * Get the value of max
      */
-    public function setLibrary(string $library): self
+    public function getMax()
+    {
+        return $this->max;
+    }
+
+    /**
+     * Set the value of max
+     */
+    public function setMax($max): self
+    {
+        $this->max = $max;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of preview_size
+     */
+    public function getPreviewSize()
+    {
+        return $this->preview_size;
+    }
+
+    /**
+     * Set the value of preview_size
+     */
+    public function setPreviewSize($preview_size): self
+    {
+        $this->preview_size = $preview_size;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of library
+     */
+    public function getLibrary()
+    {
+        return $this->library;
+    }
+
+    /**
+     * Set the value of library
+     */
+    public function setLibrary($library): self
     {
         $this->library = $library;
+
         return $this;
     }
 
     /**
-     * @param int $minSize
-     * @return Field
+     * Get the value of min_width
      */
-    public function setMinSize(int $minSize): self
+    public function getMinWidth()
     {
-        $this->min_size = $minSize;
+        return $this->min_width;
+    }
+
+    /**
+     * Set the value of min_width
+     */
+    public function setMinWidth($min_width): self
+    {
+        $this->min_width = $min_width;
+
         return $this;
     }
 
     /**
-     * @param int $maxSize
-     * @return Field
+     * Get the value of min_height
      */
-    public function setMaxSize(int $maxSize): self
+    public function getMinHeight()
     {
-        $this->max_size = $maxSize;
+        return $this->min_height;
+    }
+
+    /**
+     * Set the value of min_height
+     */
+    public function setMinHeight($min_height): self
+    {
+        $this->min_height = $min_height;
+
         return $this;
     }
 
     /**
-     * @param int $mimeTypes
-     * @return Field
+     * Get the value of min_size
      */
-    public function setMimeTypes(int $mimeTypes): self
+    public function getMinSize()
     {
-        $this->mime_types = $mimeTypes;
+        return $this->min_size;
+    }
+
+    /**
+     * Set the value of min_size
+     */
+    public function setMinSize($min_size): self
+    {
+        $this->min_size = $min_size;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of max_width
+     */
+    public function getMaxWidth()
+    {
+        return $this->max_width;
+    }
+
+    /**
+     * Set the value of max_width
+     */
+    public function setMaxWidth($max_width): self
+    {
+        $this->max_width = $max_width;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of max_height
+     */
+    public function getMaxHeight()
+    {
+        return $this->max_height;
+    }
+
+    /**
+     * Set the value of max_height
+     */
+    public function setMaxHeight($max_height): self
+    {
+        $this->max_height = $max_height;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of max_size
+     */
+    public function getMaxSize()
+    {
+        return $this->max_size;
+    }
+
+    /**
+     * Set the value of max_size
+     */
+    public function setMaxSize($max_size): self
+    {
+        $this->max_size = $max_size;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of mime_types
+     */
+    public function getMimeTypes()
+    {
+        return $this->mime_types;
+    }
+
+    /**
+     * Set the value of mime_types
+     */
+    public function setMimeTypes($mime_types): self
+    {
+        $this->mime_types = $mime_types;
+
         return $this;
     }
 }

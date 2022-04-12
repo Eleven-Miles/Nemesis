@@ -61,12 +61,110 @@ class TextAreaField extends Field
     public $disabled = '';
 
     /**
-     * @param string $placeholder
-     * @return Field
+     * Get the value of placeholder
      */
-    public function setPlaceholder(string $placeholder): self
+    public function getPlaceholder()
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * Set the value of placeholder
+     */
+    public function setPlaceholder($placeholder): self
     {
         $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of maxlength
+     */
+    public function getMaxlength()
+    {
+        return $this->maxlength;
+    }
+
+    /**
+     * Set the value of maxlength
+     */
+    public function setMaxlength($maxlength): self
+    {
+        $this->maxlength = $maxlength;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of rows
+     */
+    public function getRows()
+    {
+        return $this->rows;
+    }
+
+    /**
+     * Set the value of rows
+     */
+    public function setRows($rows): self
+    {
+        $this->rows = $rows;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of new_lines
+     */
+    public function getNewLines()
+    {
+        return $this->new_lines;
+    }
+
+    /**
+     * Set the value of new_lines
+     */
+    public function setNewLines($new_lines): self
+    {
+        $this->new_lines = $new_lines;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of readonly
+     */
+    public function getReadonly()
+    {
+        return $this->readonly;
+    }
+
+    /**
+     * Set the value of readonly
+     */
+    public function setReadonly($readonly): self
+    {
+        $this->readonly = $readonly;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of disabled
+     */
+    public function getDisabled()
+    {
+        return $this->disabled;
+    }
+
+    /**
+     * Set the value of disabled
+     */
+    public function setDisabled($disabled): self
+    {
+        $this->disabled = $disabled;
+
         return $this;
     }
 }

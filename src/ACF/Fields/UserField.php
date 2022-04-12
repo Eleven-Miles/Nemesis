@@ -38,12 +38,56 @@ class UserField extends Field
     public $multiple = 0;
 
     /**
-     * @param bool $allowNull
-     * @return Field
+     * Get the value of role
      */
-    public function setAllowNull(bool $allowNull): self
+    public function getRole()
     {
-        $this->allow_null = $allowNull;
+        return $this->role;
+    }
+
+    /**
+     * Set the value of role
+     */
+    public function setRole($role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of allow_null
+     */
+    public function getAllowNull()
+    {
+        return $this->allow_null;
+    }
+
+    /**
+     * Set the value of allow_null
+     */
+    public function setAllowNull($allow_null): self
+    {
+        $this->allow_null = $allow_null;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of multiple
+     */
+    public function getMultiple()
+    {
+        return $this->multiple;
+    }
+
+    /**
+     * Set the value of multiple
+     */
+    public function setMultiple($multiple): self
+    {
+        $this->multiple = $multiple;
+
         return $this;
     }
 }

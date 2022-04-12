@@ -47,22 +47,74 @@ class RadioField extends Field
     public $layout = 0;
 
     /**
-     * @param array $choices
-     * @return Field
+     * Get the value of choices
      */
-    public function setChoices(array $choices): self
+    public function getChoices()
+    {
+        return $this->choices;
+    }
+
+    /**
+     * Set the value of choices
+     */
+    public function setChoices($choices): self
     {
         $this->choices = $choices;
+
         return $this;
     }
 
     /**
-     * @param string $layout
-     * @return Field
+     * Get the value of other_choice
      */
-    public function setLayout(string $layout): self
+    public function getOtherChoice()
+    {
+        return $this->other_choice;
+    }
+
+    /**
+     * Set the value of other_choice
+     */
+    public function setOtherChoice($other_choice): self
+    {
+        $this->other_choice = $other_choice;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of save_other_choice
+     */
+    public function getSaveOtherChoice()
+    {
+        return $this->save_other_choice;
+    }
+
+    /**
+     * Set the value of save_other_choice
+     */
+    public function setSaveOtherChoice($save_other_choice): self
+    {
+        $this->save_other_choice = $save_other_choice;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of layout
+     */
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+
+    /**
+     * Set the value of layout
+     */
+    public function setLayout($layout): self
     {
         $this->layout = $layout;
+
         return $this;
     }
 }

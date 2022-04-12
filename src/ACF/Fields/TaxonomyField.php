@@ -61,22 +61,110 @@ class TaxonomyField extends Field
     public $add_term = 1;
 
     /**
-     * @param bool $allowNull
-     * @return Field
+     * Get the value of taxonomy
      */
-    public function setAllowNull(bool $allowNull): self
+    public function getTaxonomy()
     {
-        $this->allow_null = $allowNull;
+        return $this->taxonomy;
+    }
+
+    /**
+     * Set the value of taxonomy
+     */
+    public function setTaxonomy($taxonomy): self
+    {
+        $this->taxonomy = $taxonomy;
+
         return $this;
     }
 
     /**
-     * @param string $returnFormat
-     * @return Field
+     * Get the value of field_type
      */
-    public function setReturnFormat(string $returnFormat): self
+    public function getFieldType()
     {
-        $this->return_format = $returnFormat;
+        return $this->field_type;
+    }
+
+    /**
+     * Set the value of field_type
+     */
+    public function setFieldType($field_type): self
+    {
+        $this->field_type = $field_type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of allow_null
+     */
+    public function getAllowNull()
+    {
+        return $this->allow_null;
+    }
+
+    /**
+     * Set the value of allow_null
+     */
+    public function setAllowNull($allow_null): self
+    {
+        $this->allow_null = $allow_null;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of load_save_terms
+     */
+    public function getLoadSaveTerms()
+    {
+        return $this->load_save_terms;
+    }
+
+    /**
+     * Set the value of load_save_terms
+     */
+    public function setLoadSaveTerms($load_save_terms): self
+    {
+        $this->load_save_terms = $load_save_terms;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of return_format
+     */
+    public function getReturnFormat()
+    {
+        return $this->return_format;
+    }
+
+    /**
+     * Set the value of return_format
+     */
+    public function setReturnFormat($return_format): self
+    {
+        $this->return_format = $return_format;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of add_term
+     */
+    public function getAddTerm()
+    {
+        return $this->add_term;
+    }
+
+    /**
+     * Set the value of add_term
+     */
+    public function setAddTerm($add_term): self
+    {
+        $this->add_term = $add_term;
+
         return $this;
     }
 }

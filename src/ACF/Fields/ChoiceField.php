@@ -24,12 +24,22 @@ class ChoiceField extends Field
     public $message = 0;
 
     /**
-     * @param string $message
-     * @return Field
+     * Get the value of message
+     *
+     * @return string
      */
-    public function setMessage(string $message): self
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Set the value of message
+     */
+    public function setMessage($message): self
     {
         $this->message = $message;
+
         return $this;
     }
 }

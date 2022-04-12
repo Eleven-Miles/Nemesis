@@ -47,42 +47,74 @@ class ButtonGroupField extends Field
     public $return_format = 'value';
 
     /**
-     * @param array $choices
-     * @return Field
+     * Get the value of choices
      */
-    public function setChoices(array $choices): self
+    public function getChoices()
+    {
+        return $this->choices;
+    }
+
+    /**
+     * Set the value of choices
+     */
+    public function setChoices($choices): self
     {
         $this->choices = $choices;
+
         return $this;
     }
 
     /**
-     * @param bool $allowNull
-     * @return Field
+     * Get the value of allow_null
      */
-    public function setAllowNull(bool $allowNull): self
+    public function getAllowNull()
     {
-        $this->allow_null = $allowNull;
+        return $this->allow_null;
+    }
+
+    /**
+     * Set the value of allow_null
+     */
+    public function setAllowNull($allow_null): self
+    {
+        $this->allow_null = $allow_null;
+
         return $this;
     }
 
     /**
-     * @param string $layout
-     * @return Field
+     * Get the value of layout
      */
-    public function setLayout(string $layout): self
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+
+    /**
+     * Set the value of layout
+     */
+    public function setLayout($layout): self
     {
         $this->layout = $layout;
+
         return $this;
     }
 
     /**
-     * @param string $returnFormat
-     * @return Field
+     * Get the value of return_format
      */
-    public function setReturnFormat(string $returnFormat): self
+    public function getReturnFormat()
     {
-        $this->return_format = $returnFormat;
+        return $this->return_format;
+    }
+
+    /**
+     * Set the value of return_format
+     */
+    public function setReturnFormat($return_format): self
+    {
+        $this->return_format = $return_format;
+
         return $this;
     }
 }

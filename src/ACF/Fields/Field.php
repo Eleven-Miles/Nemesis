@@ -101,118 +101,204 @@ class Field
     {}
 
     /**
-     * @param string $prefix
-     * @return Field
+     * Get the value of prefix
      */
-    public function setPrefix(string $prefix): self
+    public function getPrefix()
+    {
+        return $this->prefix;
+    }
+
+    /**
+     * Set the value of prefix
+     */
+    public function setPrefix($prefix): self
     {
         $this->prefix = $prefix;
+
         return $this;
     }
 
     /**
-     * @param string $key
-     * @return Field
+     * Get the value of key
      */
-    public function setKey(string $key): self
+    public function getKey()
     {
-        $this->key = 'field_' . $key;
+        return $this->key;
+    }
+
+    /**
+     * Set the value of key
+     */
+    public function setKey($key): self
+    {
+        $this->key = $key;
+
         return $this;
     }
 
     /**
-     * @param string $label
-     * @return Field
+     * Get the value of label
      */
-    public function setLabel(string $label): self
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of label
+     */
+    public function setLabel($label): self
     {
         $this->label = $label;
+
         return $this;
     }
 
     /**
-     * @param string $name
-     * @return Field
+     * Get the value of name
      */
-    public function setName(string $name): self
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     */
+    public function setName($name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
     /**
-     * @param string $type
-     * @return Field
+     * Get the value of type
      */
-    public function setType(string $type): self
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     */
+    public function setType($type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
     /**
-     * @param string $parent
-     * @return Field
+     * Get the value of parent
      */
-    public function setParent(string $parent): self
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set the value of parent
+     */
+    public function setParent($parent): self
     {
         $this->parent = $parent;
+
         return $this;
     }
 
     /**
-     * @param string $instructions
-     * @return Field
+     * Get the value of instructions
      */
-    public function setInstructions(string $instructions): self
+    public function getInstructions()
+    {
+        return $this->instructions;
+    }
+
+    /**
+     * Set the value of instructions
+     */
+    public function setInstructions($instructions): self
     {
         $this->instructions = $instructions;
+
         return $this;
     }
 
     /**
-     * @param int $required
-     * @return Field
+     * Get the value of required
      */
-    public function setRequired(int $required): self
+    public function getRequired()
+    {
+        return $this->required;
+    }
+
+    /**
+     * Set the value of required
+     */
+    public function setRequired($required): self
     {
         $this->required = $required;
+
         return $this;
     }
 
     /**
-     * @param mixed $conditionalLogic
-     * @return Field
+     * Get the value of conditional_logic
      */
-    public function setConditionalLogic($conditionalLogic): self
+    public function getConditionalLogic()
     {
-        $this->conditional_logic = $conditionalLogic;
+        return $this->conditional_logic;
+    }
+
+    /**
+     * Set the value of conditional_logic
+     */
+    public function setConditionalLogic($conditional_logic): self
+    {
+        $this->conditional_logic = $conditional_logic;
+
         return $this;
     }
 
     /**
-     * @param string $width
-     * @param string $class
-     * @param string $id
-     * @return Field
+     * Get the value of wrapper
      */
-    public function setWrapper(string $width, string $class, string $id): self
+    public function getWrapper()
+    {
+        return $this->wrapper;
+    }
+
+    /**
+     * Set the value of wrapper
+     */
+    public function setWrapper($width = '', $class = '', $id = ''): self
     {
         $this->wrapper = [
             'width' => $width,
             'class' => $class,
             'id' => $id
         ];
+
         return $this;
     }
 
     /**
-     * @param string $defaultValue
-     * @return Field
+     * Get the value of default_value
      */
-    public function setDefaultValue(string $defaultValue): self
+    public function getDefaultValue()
     {
-        $this->default_value = $defaultValue;
+        return $this->default_value;
+    }
+
+    /**
+     * Set the value of default_value
+     */
+    public function setDefaultValue($default_value): self
+    {
+        $this->default_value = $default_value;
+
         return $this;
     }
 
@@ -225,6 +311,7 @@ class Field
     public function generateName(string $label): string
     {
         $label = preg_replace('/[^A-Za-z0-9]+/', '_', $label);
+
         return strtolower($label);
     }
 

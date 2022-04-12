@@ -29,4 +29,40 @@ class OembedField extends Field
      * @var int|string
      */
     public $height = '';
+
+    /**
+     * Get the value of width
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Set the value of width
+     */
+    public function setWidth($width): self
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of height
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Set the value of height
+     */
+    public function setHeight($height): self
+    {
+        $this->height = $height;
+
+        return $this;
+    }
 }

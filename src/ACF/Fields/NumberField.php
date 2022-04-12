@@ -59,32 +59,110 @@ class NumberField extends Field
     public $step = '';
 
     /**
-     * @param string $placeholder
-     * @return Field
+     * Get the value of placeholder
      */
-    public function setPlaceholder(string $placeholder): self
+    public function getPlaceholder()
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * Set the value of placeholder
+     */
+    public function setPlaceholder($placeholder): self
     {
         $this->placeholder = $placeholder;
+
         return $this;
     }
 
     /**
-     * @param string $prepend
-     * @return Field
+     * Get the value of prepend
      */
-    public function setPrepend(string $prepend): self
+    public function getPrepend()
+    {
+        return $this->prepend;
+    }
+
+    /**
+     * Set the value of prepend
+     */
+    public function setPrepend($prepend): self
     {
         $this->prepend = $prepend;
+
         return $this;
     }
 
     /**
-     * @param string $append
-     * @return Field
+     * Get the value of append
      */
-    public function setAppend(string $append): self
+    public function getAppend()
+    {
+        return $this->append;
+    }
+
+    /**
+     * Set the value of append
+     */
+    public function setAppend($append): self
     {
         $this->append = $append;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of min
+     */
+    public function getMin()
+    {
+        return $this->min;
+    }
+
+    /**
+     * Set the value of min
+     */
+    public function setMin($min): self
+    {
+        $this->min = $min;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of max
+     */
+    public function getMax()
+    {
+        return $this->max;
+    }
+
+    /**
+     * Set the value of max
+     */
+    public function setMax($max): self
+    {
+        $this->max = $max;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of stept
+     */
+    public function getStep()
+    {
+        return $this->step;
+    }
+
+    /**
+     * Set the value of step
+     */
+    public function setStep($step): self
+    {
+        $this->step = $step;
+
         return $this;
     }
 }

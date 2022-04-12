@@ -72,12 +72,128 @@ class RelationshipField extends Field
     public $return_format = 'object';
 
     /**
-     * @param string $returnFormat
-     * @return Field
+     * Get the value of post_type
      */
-    public function setReturnFormat(string $returnFormat): self
+    public function getPostType()
     {
-        $this->return_format = $returnFormat;
+        return $this->post_type;
+    }
+
+    /**
+     * Set the value of post_type
+     */
+    public function setPostType($post_type): self
+    {
+        $this->post_type = $post_type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of taxonomy
+     */
+    public function getTaxonomy()
+    {
+        return $this->taxonomy;
+    }
+
+    /**
+     * Set the value of taxonomy
+     */
+    public function setTaxonomy($taxonomy): self
+    {
+        $this->taxonomy = $taxonomy;
+
+        return $this;
+    }
+
+	/**
+	 * Get the value of filters
+	 */
+	public function getFilters()
+	{
+		return $this->filters;
+	}
+
+	/**
+	 * Set the value of filters
+	 */
+	public function setFilters($filters): self
+	{
+		$this->filters = $filters;
+
+		return $this;
+	}
+
+    /**
+     * Get the value of elements
+     */
+    public function getElements()
+    {
+        return $this->elements;
+    }
+
+    /**
+     * Set the value of elements
+     */
+    public function setElements($elements): self
+    {
+        $this->elements = $elements;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of min
+     */
+    public function getMin()
+    {
+        return $this->min;
+    }
+
+    /**
+     * Set the value of min
+     */
+    public function setMin($min): self
+    {
+        $this->min = $min;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of max
+     */
+    public function getMax()
+    {
+        return $this->max;
+    }
+
+    /**
+     * Set the value of max
+     */
+    public function setMax($max): self
+    {
+        $this->max = $max;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of return_format
+     */
+    public function getReturnFormat()
+    {
+        return $this->return_format;
+    }
+
+    /**
+     * Set the value of return_format
+     */
+    public function setReturnFormat($return_format): self
+    {
+        $this->return_format = $return_format;
+
         return $this;
     }
 }

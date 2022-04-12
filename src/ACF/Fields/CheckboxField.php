@@ -61,62 +61,110 @@ class CheckboxField extends Field
     public $return_format = 'value';
 
     /**
-     * @param array $choices
-     * @return Field
+     * Get the value of choices
      */
-    public function setChoices(array $choices): self
+    public function getChoices()
+    {
+        return $this->choices;
+    }
+
+    /**
+     * Set the value of choices
+     */
+    public function setChoices($choices): self
     {
         $this->choices = $choices;
+
         return $this;
     }
 
     /**
-     * @param string $layout
-     * @return Field
+     * Get the value of layout
      */
-    public function setLayout(string $layout): self
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+
+    /**
+     * Set the value of layout
+     */
+    public function setLayout($layout): self
     {
         $this->layout = $layout;
+
         return $this;
     }
 
     /**
-     * @param string $allowCustom
-     * @return Field
+     * Get the value of allow_custom
      */
-    public function setAllowCustom(string $allowCustom): self
+    public function getAllowCustom()
     {
-        $this->allow_custom = $allowCustom;
-        return $this;
+        return $this->allow_custom;
     }
 
     /**
-     * @param string $saveCustom
-     * @return Field
+     * Set the value of allow_custom
      */
-    public function setSaveCustom(string $saveCustom): self
+    public function setAllowCustom($allow_custom): self
     {
-        $this->save_custom = $saveCustom;
+        $this->allow_custom = $allow_custom;
+
         return $this;
     }
 
     /**
-     * @param bool $toggle
-     * @return Field
+     * Get the value of save_custom
      */
-    public function setToggle(bool $toggle): self
+    public function getSaveCustom()
+    {
+        return $this->save_custom;
+    }
+
+    /**
+     * Set the value of save_custom
+     */
+    public function setSaveCustom($save_custom): self
+    {
+        $this->save_custom = $save_custom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of toggle
+     */
+    public function getToggle()
+    {
+        return $this->toggle;
+    }
+
+    /**
+     * Set the value of toggle
+     */
+    public function setToggle($toggle): self
     {
         $this->toggle = $toggle;
+
         return $this;
     }
 
     /**
-     * @param string $returnFormat
-     * @return Field
+     * Get the value of return_format
      */
-    public function setReturnFormat(string $returnFormat): self
+    public function getReturnFormat()
     {
-        $this->return_format = $returnFormat;
+        return $this->return_format;
+    }
+
+    /**
+     * Set the value of return_format
+     */
+    public function setReturnFormat($return_format): self
+    {
+        $this->return_format = $return_format;
+
         return $this;
     }
 }

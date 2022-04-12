@@ -11,12 +11,12 @@ use NanoSoup\Nemesis\ACF\FieldGroups\FieldGroup;
 class BlockFieldGroup extends FieldGroup
 {
     /**
-     * @param string $key
-     * @return BlockFieldGroup
+     * Set the value of key
      */
-    public function setKey(string $key): self
+    public function setKey($key): self
     {
         $this->key = 'group_block_' . $key;
+
         return $this;
     }
 

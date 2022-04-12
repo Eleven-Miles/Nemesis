@@ -38,12 +38,56 @@ class EmailField extends Field
     public $append = '';
 
     /**
-     * @param string $placeholder
-     * @return Field
+     * Get the value of placeholder
      */
-    public function setPlaceholder(string $placeholder): self
+    public function getPlaceholder()
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * Set the value of placeholder
+     */
+    public function setPlaceholder($placeholder): self
     {
         $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of prepend
+     */
+    public function getPrepend()
+    {
+        return $this->prepend;
+    }
+
+    /**
+     * Set the value of prepend
+     */
+    public function setPrepend($prepend): self
+    {
+        $this->prepend = $prepend;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of append
+     */
+    public function getAppend()
+    {
+        return $this->append;
+    }
+
+    /**
+     * Set the value of append
+     */
+    public function setAppend($append): self
+    {
+        $this->append = $append;
+
         return $this;
     }
 }
