@@ -184,8 +184,8 @@ class Block
      */
     public function __construct()
     {
-        $this->setFieldGroup(new BlockFieldGroup());
-        $this->setRenderCallback([get_called_class(), 'renderBlock']);
+        $this->fieldGroup = new BlockFieldGroup();
+        $this->render_callback = [get_called_class(), 'renderBlock'];
     }
 
     /**

@@ -131,7 +131,7 @@ class Field
      */
     public function setKey($key): self
     {
-        $this->key = $key;
+        $this->key = 'field_' . $key;
 
         return $this;
     }
