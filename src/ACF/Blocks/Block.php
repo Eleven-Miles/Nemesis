@@ -597,9 +597,9 @@ class Block
     /**
      * Legacy set the value of example
      */
-    public function setPreviewExample($name, $asset, $mode = 'preview'): self
+    public function setPreviewExample($name, $asset): self
     {
-        return $this->setExample($name, $asset, $mode);
+        return $this->setExample($name, $asset, 'preview');
     }
 
     /**
