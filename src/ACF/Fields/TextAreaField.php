@@ -51,14 +51,14 @@ class TextAreaField extends Field
      * 
      * @var bool
      */
-    public $readonly = '';
+    public $readonly = 0;
 
     /**
      * Makes the input disabled. Defaults to 0.
      * 
      * @var bool
      */
-    public $disabled = '';
+    public $disabled = 0;
 
     /**
      * Get the value of placeholder

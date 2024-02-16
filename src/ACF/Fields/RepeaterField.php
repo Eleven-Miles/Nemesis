@@ -45,6 +45,13 @@ class RepeaterField extends Field
     public $max = 0;
 
     /**
+     * Sets a limit on how many rows of data are fetched per page.
+     * 
+     * @var int
+     */
+    public $rows_per_page = 20;
+
+    /**
      * Defines the layout style of the appearance of the sub fields. Default 'row'.
      * Table: Sub fields are displayed in a table. Labels will appear in the table header.
      * Block: Sub fields are displayed in blocks, one after the other.
@@ -139,6 +146,24 @@ class RepeaterField extends Field
     public function setMax($max): self
     {
         $this->max = $max;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of rows_per_page
+     */
+    public function getRowsPerPage()
+    {
+        return $this->rows_per_page;
+    }
+
+    /**
+     * Set the value of rows_per_page
+     */
+    public function setRowsPerPage($rows_per_page): self
+    {
+        $this->rows_per_page = $rows_per_page;
 
         return $this;
     }

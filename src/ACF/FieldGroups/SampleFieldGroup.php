@@ -3,6 +3,7 @@
 namespace NanoSoup\Nemesis\ACF\FieldGroups;
 
 use NanoSoup\Nemesis\ACF\Fields\TextField;
+use NanoSoup\Nemesis\ACF\Fields\WysiwygField;
 
 /**
  * Class SampleFieldGroup
@@ -26,16 +27,20 @@ class SampleFieldGroup extends FieldGroup implements FieldGroupInterface
      */
     public function registerFieldGroup(): void
     {
-        $prefix = 'sample';
+        $prefix = 'sample' . __CLASS__ . __FUNCTION__;
 
         $sampleTextField = new TextField();
-        $sampleTextField->setPrefix($prefix . __FUNCTION__)
-            ->setLabel('Sample Field');
+        $sampleTextField->setPrefix($prefix)
+            ->setLabel('Title');
+        $sampleWysiwygField = new WysiwygField();
+        $sampleWysiwygField->setPrefix($prefix)
+            ->setLabel('Content');
 
         $fieldGroup = new FieldGroup();
         $fieldGroup->setTitle('Sample Field Group')
             ->setFields([
-                $sampleTextField->getField()
+                $sampleTextField->getField(),
+                $sampleWysiwygField->getField()
             ])
             ->setLocation([
                 [

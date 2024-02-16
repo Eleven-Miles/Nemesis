@@ -73,6 +73,13 @@ class Block
     public $post_types = ['post', 'page'];
 
     /**
+     * An array of contexts to restrict this block type to.
+     * 
+     * @var array
+     */
+    public $uses_context = ['postId', 'postType'];
+
+    /**
      * The display mode for your block. Available settings are “auto”, “preview” and “edit”. 
      * Defaults to “preview”.
      * auto: Preview is shown by default but changes to edit form when block is selected.
@@ -131,14 +138,14 @@ class Block
     /**
      * The url to a .css file to be enqueued whenever your block is displayed (front-end and back-end).
      * 
-     * @var string
+     * @var mixed
      */
     public $enqueue_style = '';
 
     /**
      * The url to a .js file to be enqueued whenever your block is displayed (front-end and back-end).
      * 
-     * @var string
+     * @var mixed
      */
     public $enqueue_script = '';
 
@@ -159,16 +166,19 @@ class Block
      * full_height: This property enables the full height button on the toolbar of a block and adds the $block[‘full_height’] property inside the render template/callback. $block[‘full_height’] will only be true if the full height button is enabled on the block in the editor. Defaults to false.
      * mode: This property allows the user to toggle between edit and preview modes via a button. Defaults to true.
      * multiple: This property allows the block to be added multiple times. Defaults to true.
+     * example: An array of structured data used to construct a preview shown within the block-inserter. All values entered into the ‘data’ attribute array will become available within the block render template/callback via $block['data'] or get_field().
      * 
      * @var array
      */
     public $supports = [
-        'align' => false, 
-        'align_text' => false, 
-        'align_content' => false,
-        'full_height' => false,
+        'align' => true, 
+        'align_text' => true, 
+        'align_content' => true,
+        'full_height' => true,
         'mode' => true,
-        'multiple' => true
+        'multiple' => true,
+        'example' => true,
+        'jsx' => true
     ];
 
     /**
@@ -256,6 +266,7 @@ class Block
     public function setBlockTitle($title): self
     {
         $this->title = $title;
+
         return $this->setTitle($title);
     }
 
@@ -377,6 +388,24 @@ class Block
     public function setPostTypes($post_types): self
     {
         $this->post_types = $post_types;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of uses_context
+     */
+    public function getUsesContext()
+    {
+        return $this->uses_context;
+    }
+
+    /**
+     * Set the value of uses_context
+     */
+    public function setUsesContext($uses_context): self
+    {
+        $this->uses_context = $uses_context;
 
         return $this;
     }
@@ -564,7 +593,7 @@ class Block
      */
     public function setSupports($supports): self
     {
-        $this->supports = $supports;
+        $this->supports = array_merge($this->supports, $supports);
 
         return $this;
     }

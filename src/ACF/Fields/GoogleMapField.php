@@ -28,7 +28,7 @@ class GoogleMapField extends Field
      * 
      * @var string
      */
-    public $center_lat = '';
+    public $center_lng = '';
 
     /**
      * Sets the initial zoom level of the map. Default ''.
@@ -63,17 +63,17 @@ class GoogleMapField extends Field
     }
 
     /**
-     * Get the value of center_lat
+     * Get the value of center_lng
      */
-    public function getCenterLat()
+    public function getCenterLng()
     {
         return $this->center_lat;
     }
 
     /**
-     * Set the value of center_lat
+     * Set the value of center_lng
      */
-    public function setCenterLat($center_lat): self
+    public function setCenterLng($center_lat): self
     {
         $this->center_lat = $center_lat;
 

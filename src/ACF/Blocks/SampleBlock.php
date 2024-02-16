@@ -3,6 +3,7 @@
 namespace NanoSoup\Nemesis\ACF\Blocks;
 
 use NanoSoup\Nemesis\ACF\Fields\TextField;
+use NanoSoup\Nemesis\ACF\Fields\WysiwygField;
 use Timber\Timber;
 
 /**
@@ -67,15 +68,19 @@ class SampleBlock extends Block implements BlockInterface
      */
     public function registerFieldGroup(): void
     {
-        $prefix = 'sample_block' . __FUNCTION__;
+        $prefix = 'sample_block' . __CLASS__ . __FUNCTION__;
 
-        $sampleField = new TextField();
-        $sampleField->setPrefix($prefix)
-            ->setLabel('Sample Field');
+        $sampleTextField = new TextField();
+        $sampleTextField->setPrefix($prefix)
+            ->setLabel('Title');
+        $sampleWysiwygField = new WysiwygField();
+        $sampleWysiwygField->setPrefix($prefix)
+            ->setLabel('Content');
 
         $this->fieldGroup->setTitle('Sample Block')
             ->setFields([
-                $sampleField->getField()
+                $sampleTextField->getField(),
+                $sampleWysiwygField->getField()
             ])
             ->setLocation([
                 [
