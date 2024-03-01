@@ -4,6 +4,7 @@ namespace NanoSoup\Nemesis\ACF\FieldGroups;
 
 use NanoSoup\Nemesis\ACF\Fields\TextField;
 use NanoSoup\Nemesis\ACF\Fields\WysiwygField;
+use NanoSoup\Nemesis\ACF\Fields\RepeaterField;
 
 /**
  * Class SampleFieldGroup
@@ -28,19 +29,25 @@ class SampleFieldGroup extends FieldGroup implements FieldGroupInterface
     public function registerFieldGroup(): void
     {
         $prefix = 'sample' . __CLASS__ . __FUNCTION__;
-
-        $sampleTextField = new TextField();
-        $sampleTextField->setPrefix($prefix)
-            ->setLabel('Title');
-        $sampleWysiwygField = new WysiwygField();
-        $sampleWysiwygField->setPrefix($prefix)
-            ->setLabel('Content');
-
-        $fieldGroup = new FieldGroup();
-        $fieldGroup->setTitle('Sample Field Group')
+        FieldGroup::make()->setTitle('Sample Field Group')
             ->setFields([
-                $sampleTextField->getField(),
-                $sampleWysiwygField->getField()
+                TextField::make($prefix)
+                    ->setLabel('Title')
+                    ->getField(),
+                WysiwygField::make($prefix)
+                    ->setLabel('Content')
+                    ->setInstructions('Here are some instructions')
+                    ->getField(),
+                RepeaterField::make($prefix)
+                    ->setLabel('CTAs')
+                    ->setSubFields([
+                        TextField::make($prefix)
+                            ->setLabel('CTA Title')
+                            ->getField(),
+                        WysiwygField::make($prefix)
+                            ->setLabel('CTA Content')
+                            ->getField(),
+                    ])->getField()
             ])
             ->setLocation([
                 [

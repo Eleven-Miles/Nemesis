@@ -97,8 +97,18 @@ class Field
     /**
      * Field constructor.
      */
-    public function __construct()
-    {}
+    public function __construct($prefix)
+    {
+        $this->setPrefix($prefix);
+    }
+
+    /**
+     * Creates a new field object
+     */
+    public static function make($prefix)
+    {
+        return new static($prefix);
+    }
 
     /**
      * Get the value of prefix

@@ -199,6 +199,14 @@ class Block
     }
 
     /**
+     * Creates a new block object
+     */
+    public static function make()
+    {
+        return new static();
+    }
+
+    /**
      * Get the value of fieldGroup
      */
     public function getFieldGroup(): BlockFieldGroup
@@ -609,14 +617,12 @@ class Block
     /**
      * Set the value of example
      */
-    public function setExample($name, $asset, $mode = 'preview'): self
+    public function setExample($mode = 'preview', $data = []): self
     {
         $this->example = [
             'attributes' => [
                 'mode' => $mode,
-                'data' => [
-                    $name => get_template_directory_uri() . $asset,
-                ]
+                'data' => $data
             ]
         ];
 
@@ -628,7 +634,7 @@ class Block
      */
     public function setPreviewExample($name, $asset): self
     {
-        return $this->setExample($name, $asset, 'preview');
+        return $this->setExample('preview', [$name => get_template_directory_uri() . $asset]);
     }
 
     /**

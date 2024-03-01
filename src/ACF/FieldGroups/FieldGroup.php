@@ -100,6 +100,14 @@ class FieldGroup
     {}
 
     /**
+     * Creates a new field group object
+     */
+    public static function make()
+    {
+        return new static();
+    }
+
+    /**
      * Get the value of key
      */
     public function getKey()

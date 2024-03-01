@@ -4,6 +4,7 @@ namespace NanoSoup\Nemesis\ACF\Blocks;
 
 use NanoSoup\Nemesis\ACF\Fields\TextField;
 use NanoSoup\Nemesis\ACF\Fields\WysiwygField;
+use NanoSoup\Nemesis\ACF\Fields\RepeaterField;
 use Timber\Timber;
 
 /**
@@ -31,7 +32,7 @@ class SampleBlock extends Block implements BlockInterface
     {
         $this->setTitle('Sample Block')
             ->setRenderCallback([self::class, 'renderBlock'])
-            ->setExample(
+            ->setPreviewExample(
                 'block_preview', 
                 '/classes/ACF/Blocks/Content/previews/sample-block.png'
             )
@@ -69,18 +70,25 @@ class SampleBlock extends Block implements BlockInterface
     public function registerFieldGroup(): void
     {
         $prefix = 'sample_block' . __CLASS__ . __FUNCTION__;
-
-        $sampleTextField = new TextField();
-        $sampleTextField->setPrefix($prefix)
-            ->setLabel('Title');
-        $sampleWysiwygField = new WysiwygField();
-        $sampleWysiwygField->setPrefix($prefix)
-            ->setLabel('Content');
-
         $this->fieldGroup->setTitle('Sample Block')
             ->setFields([
-                $sampleTextField->getField(),
-                $sampleWysiwygField->getField()
+                TextField::make($prefix)
+                    ->setLabel('Title')
+                    ->getField(),
+                WysiwygField::make($prefix)
+                    ->setLabel('Content')
+                    ->setInstructions('Here are some instructions')
+                    ->getField(),
+                RepeaterField::make($prefix)
+                    ->setLabel('CTAs')
+                    ->setSubFields([
+                        TextField::make($prefix)
+                            ->setLabel('CTA Title')
+                            ->getField(),
+                        WysiwygField::make($prefix)
+                            ->setLabel('CTA Content')
+                            ->getField(),
+                    ])->getField()
             ])
             ->setLocation([
                 [
