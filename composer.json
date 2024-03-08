@@ -1,8 +1,8 @@
 {
-  "name": "tj-digital/nemesis",
+  "name": "eleven-miles/nemesis",
   "description": "Nemesis Bundle",
   "require": {
-    "php": ">=7.2"
+    "php": ">=7.4 || ^8.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.3",
@@ -10,8 +10,8 @@
   },
   "authors": [
     {
-      "name": "TJ Digital",
-      "email": "dev@thinkingjuice.co.uk"
+      "name": "Eleven Miles",
+      "email": "dev@elevenmiles.com"
     }
   ],
   "autoload": {
