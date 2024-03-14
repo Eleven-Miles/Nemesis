@@ -283,13 +283,39 @@ class Field
     /**
      * Set the value of wrapper
      */
-    public function setWrapper($width = '', $class = '', $id = ''): self
+    public function setWrapper($wrapper): self
     {
-        $this->wrapper = [
-            'width' => $width,
-            'class' => $class,
-            'id' => $id
-        ];
+        $this->wrapper = array_merge($this->wrapper, $wrapper);
+
+        return $this;
+    }
+
+    /**
+     * Set the width value of wrapper
+     */
+    public function setWrapperWidth($width): self
+    {
+        $this->wrapper['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Set the class value of wrapper
+     */
+    public function setWrapperClass($class): self
+    {
+        $this->wrapper['class'] = $class;
+
+        return $this;
+    }
+
+    /**
+     * Set the id value of wrapper
+     */
+    public function setWrapperId($id): self
+    {
+        $this->wrapper['id'] = $id;
 
         return $this;
     }

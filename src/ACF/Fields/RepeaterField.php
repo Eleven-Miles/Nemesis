@@ -59,7 +59,7 @@ class RepeaterField extends Field
      * 
      * @var string
      */
-    public $layout = 'row';
+    public $layout = 'block';
 
     /**
      * The text shown in the ‘Add Row’ button. Default 'Add Row'.
